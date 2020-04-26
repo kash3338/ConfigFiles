@@ -26,7 +26,7 @@ spring:
     show-sql: false
 
 server:
-  port: ${shoppingcartservice.server.port:8083}
+  port: ${cart.server.port:8083}
   
 eureka:
   instance:
