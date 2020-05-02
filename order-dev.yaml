@@ -1,36 +1,33 @@
 spring:
-  application:
-   name: orderservice
-  h2:
-    console:
+   application:
+      name: order
+   stream:
+      bindings:
+         output:
+            destination: w-events
+            content-type: application/json
+         kafka:
+            binder:
+               zkNodes: localhost
+               brokers: localhost
+               
+   h2:
+     console:
       path: /r2
       settings:
         web-allow-others: true
         
-  datasource:
+   datasource:
     url: jdbc:h2:mem:orderDb;DB_CLOSE_ON_EXIT=FALSE;
     username: sa
     password:
     driver-class-name: org.h2.Driver
-  jpa:
+   jpa:
     show-sql: false
 
 server:
-  port: ${order.server.port:8084}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: ALWAYS
-
-feign:
-  hystrix:
-    enabled: true
-
+  port: ${cart.server.port:8084}
+  
 eureka:
   instance:
     instanceId: ${spring.application.name}:${random.int}
