@@ -16,7 +16,7 @@ spring:
     show-sql: false
 
 server:
-  port: ${project1.server.port:8082}
+  port: ${project1.server.port:8084}
 
 management:
   endpoints:
