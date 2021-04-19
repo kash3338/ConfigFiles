@@ -4,7 +4,7 @@ spring:
    application:
       name: extrlCallbackRouter
 kafka:
-   bootstrapAddress: localhost:9097
+   bootstrapAddress: localhost:9092
    topic:
       name: vault.api.v1.workflows.workflow_instance.external_operation.requests
    groupId: extrlCallbackRouter   
